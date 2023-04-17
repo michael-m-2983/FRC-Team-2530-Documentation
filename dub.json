@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Michael M"
+	],
+	"copyright": "Copyright © 2023, Michael M",
+	"dependencies": {
+		"commonmark-d": "~>1.0.8"
+	},
+	"description": "Static site generator for our documentation.",
+	"license": "proprietary",
+	"name": "frc-team-2530-documentation"
+}
