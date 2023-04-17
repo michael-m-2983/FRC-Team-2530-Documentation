@@ -4,7 +4,8 @@
 	],
 	"copyright": "Copyright © 2023, Michael M",
 	"dependencies": {
-		"commonmark-d": "~>1.0.8"
+		"commonmark-d": "~>1.0.8",
+		"htmld": "~>0.3.7"
 	},
 	"description": "Static site generator for our documentation.",
 	"license": "proprietary",

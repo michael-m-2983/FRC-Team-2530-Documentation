@@ -1,7 +1,8 @@
 import std.stdio : writeln, writefln;
-import std.file, std.format, std.string;
+import std.file, std.format, std.string, std.conv;
 
 import commonmarkd; // For markdown -> html
+import html; // for fixing links
 
 const MarkdownFlag flags =
 	MarkdownFlag.enableStrikeThrough +
@@ -11,24 +12,6 @@ const MarkdownFlag flags =
 
 void main()
 {
-	writeln("===== pre generation =====");
-	writeln("cwd=" ~ getcwd());
-	writeln("files in cwd:");
-	foreach (entry; dirEntries(".", SpanMode.shallow))
-	{
-		writefln("\t%s", entry);
-	}
-
-	if (exists("output") && isDir("output"))
-	{
-		writeln("files in output:");
-
-		foreach (entry; dirEntries("output", SpanMode.shallow))
-		{
-			writefln("\t%s", entry);
-		}
-	}
-
 	// Make sure everything exists
 	assert(exists("docs") && isDir("docs"));
 	assert(exists("static") && isDir("static"));
@@ -43,9 +26,26 @@ void main()
 	{
 		if (!isFile(entry))
 			continue;
-		string content;
+		string content = format(readText("template.html"), convertMarkdownToHTML(readText(entry), flags));
 
-		content ~= format(readText("template.html"), convertMarkdownToHTML(readText(entry), flags));
+		auto doc = createDocument(content);
+
+		const char[] tName = "a";
+
+		foreach(a; doc.elementsByTagName(tName)) {
+			string href = to!string(a["href"]);
+			
+			if(href.startsWith("/")) {
+				href = "https://michael-m-2983.github.io/FRC-Team-2530-Documentation" ~ href;
+			}
+
+			a["href"] = href;
+		}
+
+		// <a href="/programming/Laptop-Rules">
+
+		content = to!string(doc.root.outerHTML);
+		
 
 		mkdirRecurse("output" ~ entry["docs".length .. $ - ".md".length]);
 		write("output" ~ entry["docs".length .. $ - ".md".length] ~ "/index.html", content);
@@ -58,22 +58,4 @@ void main()
 		copy(entry, "output" ~ entry["static".length .. $]);
 
 	writeln("Finished!");
-
-	writeln("===== post generation =====");
-	writeln("cwd=" ~ getcwd());
-	writeln("files in cwd:");
-	foreach (entry; dirEntries(".", SpanMode.shallow))
-	{
-		writefln("\t%s", entry);
-	}
-
-	if (exists("output") && isDir("output"))
-	{
-		writeln("files in output:");
-
-		foreach (entry; dirEntries("output", SpanMode.shallow))
-		{
-			writefln("\t%s", entry);
-		}
-	}
 }

@@ -1,9 +1,3 @@
----
-Title: `.gitignore` doesn't work
-category: pages
-layout: default
----
-
 # `.gitignore` doesn't work
 
 This happens when the files you're trying to ignore have already been committed in the repository.
