@@ -1,4 +1,4 @@
-import std.stdio : writeln;
+import std.stdio : writeln, writefln;
 import std.file, std.format, std.string;
 
 import commonmarkd; // For markdown -> html
@@ -11,6 +11,24 @@ const MarkdownFlag flags =
 
 void main()
 {
+	writeln("===== pre generation =====");
+	writeln("cwd=" ~ getcwd());
+	writeln("files in cwd:");
+	foreach (entry; dirEntries(".", SpanMode.shallow))
+	{
+		writefln("\t%s", entry);
+	}
+
+	if (exists("output") && isDir("output"))
+	{
+		writeln("files in output:");
+
+		foreach (entry; dirEntries("output", SpanMode.shallow))
+		{
+			writefln("\t%s", entry);
+		}
+	}
+
 	// Make sure everything exists
 	assert(exists("docs") && isDir("docs"));
 	assert(exists("static") && isDir("static"));
@@ -23,7 +41,8 @@ void main()
 
 	foreach (entry; dirEntries("docs", SpanMode.breadth))
 	{
-		if(!isFile(entry)) continue;
+		if (!isFile(entry))
+			continue;
 		string content;
 
 		content ~= format(readText("template.html"), convertMarkdownToHTML(readText(entry), flags));
@@ -40,4 +59,21 @@ void main()
 
 	writeln("Finished!");
 
+	writeln("===== post generation =====");
+	writeln("cwd=" ~ getcwd());
+	writeln("files in cwd:");
+	foreach (entry; dirEntries(".", SpanMode.shallow))
+	{
+		writefln("\t%s", entry);
+	}
+
+	if (exists("output") && isDir("output"))
+	{
+		writeln("files in output:");
+
+		foreach (entry; dirEntries("output", SpanMode.shallow))
+		{
+			writefln("\t%s", entry);
+		}
+	}
 }
