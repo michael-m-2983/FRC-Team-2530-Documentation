@@ -22,7 +22,7 @@ jobs:
     # Run the conversion code
     - name: 'Generate static site'
       run: |
-        dub build --compiler=$DC
+        dub run --compiler=$DC
         
     # Fix github pages being annoying
     - name: GitHub Pages Overwriter
