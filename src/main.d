@@ -44,7 +44,7 @@ void main()
 
 		// <a href="/programming/Laptop-Rules">
 
-		content = to!string(doc.root.outerHTML);
+		content = to!string(doc.root.html);
 		
 
 		mkdirRecurse("output" ~ entry["docs".length .. $ - ".md".length]);
