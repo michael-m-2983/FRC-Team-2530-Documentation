@@ -50,6 +50,7 @@ Other teams don't need to read these.
 
 ### Other
 - [How to create pages](/documentation/How-to-create-pages)
+- [How the documentation works](/documentation/How-it-works)
 - [Hall effect](/other/Hall-Effect---on-turret)
 - [Programming motors](/programming/getting-started/Programming-motors)
 - [Coltons Desmos Arm Sim](/programming/Coltons_ArmV2_Simulation)
