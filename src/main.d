@@ -44,9 +44,9 @@ void main()
 
 
 		if(entry == "docs/index.md" || entry == "index.md") {
-			tName = "li";
+			const char[] tName2 = "li";
 
-			foreach(li; doc.elementsByTagName(tName)) {
+			foreach(li; doc.elementsByTagName(tName2)) {
 				li["class"] = "weirdo";
 			}
 
