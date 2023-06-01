@@ -42,15 +42,10 @@ void main()
 			a["href"] = href;
 		}
 
+		doc["body"]["class"] = "abc";
 
-		if(entry == "docs/index.md" || entry == "index.md") {
-			const char[] tName2 = "li";
 
-			foreach(li; doc.elementsByTagName(tName2)) {
-				li["class"] = "weirdo";
-			}
-
-		}
+		
 		
 
 
