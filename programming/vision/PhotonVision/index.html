@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <hr>
+<h2>Title: PhotonVision
+category: pages
+layout: default</h2>
+<h1>PhotonVision</h1>
+<h2>Installing PhotonVision</h2>
+<p>[PhotonVision] <a href="https://photonvision.org/">PhotonVision</a></p>
+<h2>Calibrating the LimeLight for AprilTags</h2>
+<p>After downloading the software, connect the LimeLight to the robot and turn it on. Run an IP scan with AngryIPScanner to locate the LimeLight across the network. It should be on <code>10.te.am.XX</code> (So, 10.25.30.XX for us), look for it once the IP scan has complete. (It will be named something like photonvision.local).</p>
+<p>Put the IP into your search bar, and see if the photonvision dashboard pops up.</p>
+<p><img alt="PhotonVision Dashboard" src="https://photonvision.org/images/demo.png"></p>
+<p>It may not identify AprilTags (in 3D mode) quite yet as you will need to calibrate PhotonVision to do so. Navigate to the <code>Cameras</code> tab on PhotonVision and scroll to where it says "Download Target". Print it out with 100% normal scale (It should look like a chess board). Use <code>Start Calibration</code> and observe as the camera draws colored lines on the sheet. It has to be very flat for good identification, so use a flat board when calibrating. Follow the instructions that it gives you and use the <code>Take Snapshot</code> button to take multiple pictures for calibration. Use the <code>Save</code> button when complete. It should now be able to track AprilTags in 3D!</p>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Programming motors</h1>
+<p>Programming motors is the most fundamental programming task in FIRST, as motors control all robot movement. Motors are typically hooked up to <em>motor controllers</em>, which allow programmatic control of motor speed and direction.</p>
+<p>You should have already followed the <strong>Installing programs</strong> articles at this point. If not, <a href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/index/">go back to Home</a> and do those first. If you skipped installing the CTRE Phoenix library, make sure you go back and do that now.</p>
+<p>First, determine what subsystem you're working in. If you're adding a new component to the robot, create a new subsystem.</p>
+<p>We have a couple different flavors of motor controllers. Make sure you know which one you're programming for before you get started.</p>
+<h2>Programming the Talon SRX</h2>
+<p><a href="https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_w_p_i___talon_s_r_x.html">Full documentation here</a></p>
+<p>Start by doing <code>import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;</code>, then define the motor controller by typing <code>private static WPI_TalonSRX MOTORNAME = new WPI_TalonSRX(PORT);</code> at the top of the subsystem's class, where <code>MOTORNAME</code> is what you want to name the motor and <code>PORT</code> is the port that the motor is connected to. (For <code>PORT</code>, it's best to store this value as a constant.)</p>
+<p>Set the speed of the motor by using <code>MOTORNAME.set(SPEED)</code>, where <code>NAME</code> is the name of the motor and <code>SPEED</code> is a double-type value between -1 and 1.</p>
+<h2>Programming the Talon FX</h2>
+<p><a href="https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_w_p_i___talon_f_x.html">Full documentation here</a></p>
+<p>Start by doing <code>import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;</code>, then define the motor controller by typing <code>private static WPI_TalonFX MOTORNAME = new WPI_TalonFX(PORT);</code> at the top of the subsystem's class, where <code>MOTORNAME</code> is what you want to name the motor and <code>PORT</code> is the port that the motor is connected to. (For <code>PORT</code>, it's best to store this value as a constant.)</p>
+<p>Set the speed of the motor by using <code>MOTORNAME.set(SPEED)</code>, where <code>NAME</code> is the name of the motor and <code>SPEED</code> is a double-type value between -1 and 1.</p>
+<p>If you need to rotate the motor a specific amount, use <code>setSelectedSensorPosition(getSelectedSensorPosition() + (ANGLE / 360 * Constants.ENCODER_TICKS_PER_REVOLUTION), 0, TIMEOUT);</code> where <code>ANGLE</code> is the amount of degrees to turn the motor and <code>TIMEOUT</code> is the number of milliseconds for stall detection. You can use this with a try-catch to detect if it takes longer than this, as it will throw an error.</p>
+<h2>Programming the Victor SPX</h2>
+<p><a href="https://store.ctr-electronics.com/content/api/java/html/classcom_1_1ctre_1_1phoenix_1_1motorcontrol_1_1can_1_1_w_p_i___victor_s_p_x.html">Full documentation here</a></p>
+<p>Start by doing <code>import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;</code>, then define the motor controller by typing <code>private static WPI_VictorSPX MOTORNAME = new WPI_VictorSPX(PORT);</code> at the top of the subsystem's class, where <code>MOTORNAME</code> is what you want to name the motor and <code>PORT</code> is the port that the motor is connected to. (For <code>PORT</code>, it's best to store this value as a constant.)</p>
+<p>Set the speed of the motor by using <code>MOTORNAME.set(SPEED)</code>, where <code>NAME</code> is the name of the motor and <code>SPEED</code> is a double-type value between -1 and 1.</p>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>How the documentation works</h1>
+<p>To start, the program checks if everything exists and is working. Then it deletes the <code>output</code> directory. After that, it loops through every file in the <code>docs</code> directory and converts it to HTML, and fixes its links. Once this is done, the program copies static files to <code>output</code>, and copies the index file to another location, which allows the user to just go to <code>https://michael-m-2983.github.io/FRC-Team-2530-Documentation/</code> instead of <code>https://michael-m-2983.github.io/FRC-Team-2530-Documentation/index/</code>.</p>
+<h3>Hosting</h3>
+<p>For hosting, this project uses <a href="https://github.com/features/actions">Github Actions</a>, <a href="https://pages.github.com/">Github Pages</a>, and <a href="https://github.com/rayluo/github-pages-overwriter">github-pages-overwriter</a> to run the generator, move the contents of <code>output/</code> to a new branch <code>gh-pages</code> and then publish the GitHub pages site. If you want to know more about this, a good place to start would be the projects <a href="https://github.com/michael-m-2983/FRC-Team-2530-Documentation/blob/master/.github/workflows/publish.yml">publish workflow</a>.</p>
+<h3>Libraries</h3>
+<p>The static site generator uses <a href="https://code.dlang.org/packages/commonmark-d">commonmark-d</a> to convert the markdown files from <code>docs</code> into HTML. <a href="https://code.dlang.org/packages/htmld">htmld</a> is used to append the full URL to every link that starts with '/'.</p>
+<h3>Frontend stuff</h3>
+<p>For syntax highlighting, this project uses <a href="https://prismjs.com/">PrismJS</a>. Other than that, all of it is just raw HTML/CSS/JS.</p>
+<h3>Folder overviews</h3>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.github/</code></td>
+<td>Github actions workflow</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td>All of the actual documentation/markdown goes here.</td>
+</tr>
+<tr>
+<td><code>output/</code></td>
+<td>The generated webpage will be here once you run this. Note: all files in here are automatically deleted when the generator runs.</td>
+</tr>
+<tr>
+<td><code>src/</code></td>
+<td>This is where the code for the generator is.</td>
+</tr>
+<tr>
+<td><code>static/</code></td>
+<td>non-markdown related files. e.g. stylesheets, scripts, images.</td>
+</tr>
+</tbody>
+</table>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

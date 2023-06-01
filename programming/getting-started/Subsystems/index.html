@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Subsystems</h1>
+<p>Subsystems are where methods are created and defined. They're organized by the part of the robot they're for (elevator, LimeLight, shooter, etc.)</p>
+<h3>To create a new subsystem:</h3>
+<ol>
+<li>Right-click on the <code>subsystems</code> folder.</li>
+<li>Go to the bottom of the context menu that appears and select "Create a new class/command".</li>
+<li>In the input box that appears at the top, type/click <code>Subsystem (New)</code>.</li>
+<li>Give it a relevant name.</li>
+<li>Open <code>RobotContainer.java</code> and scroll down to where it says <code>// --- Subsystems --- \\</code>.</li>
+<li>Below the other subsystem declarations, type <code>private final NAME VARNAME = new NAME();</code>, where NAME is the file name you gave your subsystem and VARNAME is a new name to reference in code. If applicable, add any required parameters in the parentheses.</li>
+</ol>
+<h3>To add methods to a subsystem:</h3>
+<ol>
+<li>Open your subsystem's file.</li>
+<li>Go to the very bottom of the file (just before the last bracket) and hit enter a couple of times. Then add a new method:</li>
+</ol>
+<ul>
+<li>Type <code>public</code>. This will allow the method to be used outside of the subsystem file.</li>
+<li>Type <code>void</code> if the method won't return a value. Otherwise, enter the data type you want the method to return.</li>
+<li>Type your method's name, then immediately afterwards, type a set of parentheses. <code>()</code></li>
+<li>Inside the parentheses, add your parameters -- inputs that are passed into the method as premade variables. Like normal variables, you need to provide the data type and a parameter name.</li>
+<li>After the parentheses, type a <code>{</code> and press enter. This is where you'll write your method's code. In VSCode, a <code>}</code> should automatically appear where it needs to be.</li>
+</ul>
+<h3>To call subsystem methods:</h3>
+<p>These methods shouldn't actually be run within the subsystem files, only defined. That's what <a href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/programming/getting-started/Commands">commands</a> are for.</p>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Setting up FRC Driver Station</h1>
+<p>FRC Driver Station is software that enables a computer to be utilized as (surprise surprise) a driver station for FRC robots. This software is required to be installed on at least one computer we bring to competitions in order to control our robot.</p>
+<h2>Installation</h2>
+<p>Only computers with Windows are supported. (Unacceptable. Smh National Instruments)</p>
+<p>Follow the instructions on <a href="https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/frc-game-tools.html#installing-the-frc-game-tools">this page</a> to install the FRC Game Tools, which includes Driver Station. When you get to the point where it asks you to create an account, just go ahead and create your own. You can trust the company with your personal information.</p>
+<h2>Configuration</h2>
+<p>Go to the Settings tab on the left side of the screen and enter <code>2530</code> in the Team Number field. <strong>The robot will not be able to communicate with Driver Station if this is not set.</strong> Also, set the Dashboard Type to <code>Shuffleboard</code>.</p>
+<p><img alt src="https://user-images.githubusercontent.com/56053273/149267432-5cd354e5-b09d-459b-945e-4ac6dcb6c57b.png"></p>
+<p>Once Shuffleboard opens, go to <code>File > Load layout</code> and select the <code>shuffleboard.json</code> file saved in this year's robot code.</p>
+<p>Now connect the drive joystick to your computer and go to the USB tab. <strong>Make sure that the port number shown for the joystick is the same as the port number defined in the robot code.</strong> In this example, if the declaration of the controller is <code>Joystick stick1 = new Joystick(0);</code> then you're good to go!</p>
+<p><img alt=image src="https://user-images.githubusercontent.com/56053273/149868025-7da2a3af-2bee-4ce8-aaf4-47d14b172360.png"></p>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Code Style Guide</h1>
+<p>Code is most readable when it's written in a consistent <em>style</em>, especially in a team setting. Please keep the following conventions in mind while writing Java for the robot. If there are any you don't understand, refer to the example at the bottom or ask a mentor/lead.</p>
+<ul>
+<li>Use <strong>camel case</strong> for regular variable and method names. Please name them with words or common abbreviations (like PID) if possible.</li>
+<li>Use <strong>all-caps snake case</strong> for constant variable names. Also name these with words or common abbreviations.</li>
+<li>In statements, put <strong>one space</strong> between the reserved word and the parentheses (and the curly bracket if you have one.)</li>
+<li>The first curly bracket of a block <strong>should not go on its own line.</strong></li>
+<li>The contents of a block should only be <strong>single-indented.</strong></li>
+<li>Use <strong>one empty line</strong> to separate sections of code and method definitions. Sections include <code>import</code>s, the instance variables, the constructor, and then everything below. You can make subsections of these too, but be careful not to make too many.</li>
+<li>Try to keep individual lines of code <strong>under 120 characters.</strong> VS Code has a faint grey line as you scroll right to help indicate this. If you need to shorten a line, try creating "temporary" variables to split up and store individual components.</li>
+<li>Don't forget to remember to <strong>use plenty of comments.</strong> If you think you're using enough comments, you probably need to add more.</li>
+<li>If you can't remember a specific convention or don't understand one yet, just look around the code and <strong>use common sense.</strong> As long as it looks okay, it's probably fine.</li>
+<li><strong><strong>Nesting is bad. If you can avoid it, do so.</strong></strong></li>
+</ul>
+<p>You should get in the habit of using <code>Shift + Alt + F</code> often - this is a shortcut in VS Code that performs some formatting on your code automatically, such as spacing, bracket placement, and line character limits. This is especially useful when copy-pasting.</p>
+<p>Example:</p>
+<pre><code class=language-java>// Imports
+import java.example;
+
+// Instance variables
+final boolean EXAMPLE_CONSTANT = true;
+boolean exampleVariable;
+
+// Constructor
+public Example(boolean exampleVariable) {
+    this.exampleVariable = exampleVariable;
+}
+
+// Other code
+if (exampleVariable) {
+    doCode();
+} else {
+    // Remember to use plenty of comments
+    doOtherCode();
+}
+
+// Method
+public void doCode() {
+    // This is a "temporary" variable used for splitting up a long line of code
+    boolean exampleSplit = exampleVariable.doSomething().doSomethingElse();
+    exampleSplit.doOneMoreThingThatMadeThePreviousLineTooLong();
+    System.out.println("This is pretty nice code");
+}
+
+/**
+ * You might also see some comments that look like this.
+ * This is called Javadoc. It's responsible for the tooltips VS Code shows when you hover over something.
+ * If you have experience with JSDoc, it's basically the same thing.
+ */
+public void doOtherCode() {
+    System.out.println("This is pretty nice code");
+} 
+</code></pre>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

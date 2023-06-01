@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Getting started with the robot</h1>
+<p>In this article, you will learn how to make edits to the robot's code and get the updated code onto the robot.</p>
+<p>You should have already followed the <strong>Installing programs</strong> articles at this point. If not, <a href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/index/">go back to Home</a> and do those first.</p>
+<h2>Editing code</h2>
+<p>Before editing, it's always a good idea to <strong>pull</strong> the latest version of the code from GitHub. Clicking the Pull button in your version control software will download the latest version of the code to your computer. (If you already have it open in VSCode, any changes are reflected immediately.)</p>
+<p>In VSCode, open the folder you saved the repo to -- hopefully you remember where that is! In the folder view, navigate to src > main > java > frc > robot. You'll see something like this:</p>
+<p>📁 commands<br>
+📁 libraries<br>
+📁 subsystems<br>
+📄 Constants.java<br>
+📄 Main.java<br>
+📄 Robot.java<br>
+📄 RobotContainer.java</p>
+<p>You don't need to be familiar with all of this yet, but in case you're curious, here's what each file and folder is for:</p>
+<ul>
+<li><code>Main.java</code> just starts the program -- you'll probably never need to touch it.</li>
+<li><code>Robot.java</code> controls what <strong>automatically</strong> happens. There are different "methods" that run at different times, such as when the robot starts, while the robot is running, and during different phases of the FRC game, such as before/during autonomous and teleop. However, besides what's already there, programmers should only add things like diagnostics and logging.</li>
+<li><code>RobotContainer.java</code> controls everything that the robot actually does. This is where joysticks and buttons are hooked up to their corresponding code. The code run during autonomous and teleop is also hooked up here.</li>
+<li><code>Constants.java</code> stores things that won't change <strong>while the robot runs</strong>, such as wheel sizes and motor ports. This makes them easy to change while the robot isn't running if needed.</li>
+<li>Most of the robot's functionality is programmed out within <em>subsystems</em>, which are stored in the <code>subsystems</code> folder.</li>
+<li>To actually carry out this functionality, <em>commands</em> are used, which are stored in the <code>commands</code> folder.</li>
+<li><em>Libraries</em> are like addons for Java, and they're stored in the <code>libraries</code> folder. You've already installed the CTRE Phoenix library, but that's actually a <em>vendor library</em>, so it won't show up in this folder. You probably won't need to touch this unless you're adding a new library.</li>
+</ul>
+<p>Don't get overwhelmed by all of this -- we're going to take it one step at a time in the following articles. To get started, let's hook up a command to a button in <code>RobotContainer.java</code>:</p>
+<ol>
+<li>Open the <code>RobotContainer.java</code> file in VSCode.</li>
+<li>Scroll down to the "Joysticks and Buttons" section -- we're going to add a new button.</li>
+<li>At the bottom of the "Joystick buttons" area, type <code>private final JoystickButton Button999 = new JoystickButton(stick1, 999);</code>. This creates a new button object -- if there were a button with the ID "999" on the joystick, this object would be used to detect its presses.</li>
+<li>Scroll down to the line that has <code>private void configureButtonBindings()</code> in it -- we're going to hook up an example command to the button.</li>
+<li>Inside the curly brackets, there are a bunch of lines that start with "Button". Create a new line below these and type <code>Button999.whenPressed(new ExampleCommand(ExampleSubsystem));</code>. Since this is just practice, this code won't do anything, but it's the same structure used when actually adding a real button. You'll learn more about this in the following articles.</li>
+</ol>
+<h2>Sending code</h2>
+<p>It's great to have some cool code, but it doesn't do any good just sitting on your computer. We want everyone to be able to access it, but more importantly, we want it running on the robot!</p>
+<h3>Pushing to GitHub</h3>
+<p>To push your code to the GitHub repository using GitKraken:</p>
+<ul>
+<li>Save (Ctrl + S) whatever you're working on in VSCode.</li>
+<li>Whenever you work on something experimental, incomplete, or untested (or just want to save your progress so you can edit at home), you'll make a new branch by clicking the Branch button. Since what we're doing is just practice, do this now. (To switch back to another branch, double-click the branch you want to switch to.)</li>
+<li>Click the "View changes" button in the right panel of GitKraken, then click "Stage all changes."</li>
+<li>Add a (helpful) summary of the changes you made in the commit message, then click the "Commit changes" button.</li>
+<li>At this point, your "commit" is only saved on your computer. Make sure you click the Push button to upload your changes so that everyone can see them! (You'll see a little 2530 icon in the branch label if the commit is uploaded.)</li>
+<li>This shouldn't happen with this tutorial since you're not merging any branches, but if your software ever alerts you of a merge conflict, STOP! Do not proceed or try to resolve the issue. Ask a lead for help.</li>
+</ul>
+<p>If you're using a different program, the process is generally the same.</p>
+<h3>Deploying to the robot</h3>
+<p>To deploy your code to the actual robot: (the robot has to be physically in the same building as you for this to work)</p>
+<ol>
+<li>In VSCode, select the input box at the top with the little WPILib logo in it.</li>
+<li>Type "Build Code" and select the option that appears. This makes a robot-ready version of the code for you.</li>
+<li>Ensure that the robot is on (if it's not, with permission, turn the robot on) and connect your computer to the RoboRIO's Wi-Fi network. It will say "No internet" -- that's supposed to happen, since you're connected directly to the robot, not the Internet.</li>
+<li>In the same input box, type "Deploy Code" and select the option that appears. This actually SENDS the code that you built in Step 2. Nothing will change if you forget this step!</li>
+</ol>
+<hr>
+<p>If you've finished this article, great work! The next step is to learn more about <a href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/programming/getting-started/Subsystems/">subsystems</a>.</p>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>

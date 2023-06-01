@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FRC Team 2530 Documentation</title>
+    <meta content="Documentation for FRC Team 2530" name=description>
+    <meta content="index, follow" name=robots>
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/style.css">
+    <link rel=stylesheet href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.css">
+</head>
+
+<body>
+    <h1>Phoenix Tuner Use</h1>
+<p>Phoenix Tuner is a pretty simple piece of software. It's mostly automatic.</p>
+<p>You'll need to <a href="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/programming/getting-started/Setting-up-CTRE-Phoenix-Framework">install the CTRE Phoenix Framework</a> to get Phoenix Tuner.</p>
+<h2>Initial Setup (Robot)</h2>
+<ol>
+<li>Connect the laptop to the RoboRIO via a USB-A to USB-B cable. USB-A end goes in the laptop, USB-B in the RoboRIO.</li>
+<li>Launch Phoenix Tuner</li>
+<li>Read through the text at the top of the tab labeled "Robot Controller Install."</li>
+<li>Follow its instructions, and wait until it's done.</li>
+<li>The diagnostic server is now installed, and Phoenix tuner can now be used.</li>
+<li>To start viewing CAN devices, it needs to know where to look; Put either the team number or the IP of the RoboRIO (usually 10.25.30.2) into the Diagnostic Server Address box on the Robot Controller Install tab. It will autoconnect and start displaying CAN devices, of which the list will continually update. No need to manually refresh.</li>
+</ol>
+<h2>General Use</h2>
+<ul>
+<li><p>The most common application of the software is for clearing sticky faults.</p>
+<ul>
+<li>Go to the CAN Devices tab</li>
+<li>Click the CAN device you want to test</li>
+<li>Switch to the Self-Test tab</li>
+<li>Press Self-Test at the bottom to get the diagnostic readout</li>
+<li>Interpret the cause, then press Blink at the bottom to clear it</li>
+</ul>
+</li>
+<li><p>Another use of Phoenix Tuner is updating the firmware of the PDP, PCM, and motor controllers.</p>
+<ul>
+<li><a href="https://store.ctr-electronics.com/talon-srx/#product_tabs_technical_resources">Download the latest version of the firmware.</a></li>
+<li>On the Can Device page, the bottom has a section for upgrading the firmware.</li>
+<li>All you have to do is select the CAN device you wish to upgrade</li>
+<li>Select the firmware file using the [...] box</li>
+<li>On the file explorer sidebar, there should be a section with the Phoenix Tuner icon and name</li>
+<li>It contains some subfolders, which each contain different firmware files</li>
+<li>Find and select the firmware files for the device you are trying to update</li>
+<li>Press the Update Device button, or select "Update all _______ Devices" to do all of them, one after another, all at once.</li>
+</ul>
+</li>
+</ul>
+<h2>Problems we have encountered in the past</h2>
+<ul>
+<li>Upon first connection of CAN wires, the motor controllers all got assigned the same ID of 0 on the CAN bus.<ul>
+<li>The solution was simple, click the slot for the duplicates, and change the ID over and over again until each controller has its own ID</li>
+<li>Be cautious, however, as this changes which is which in the code, and could cause problems if, say, the back left motor was previously coded as ID 4, and now appears as ID 2 to the robot.</li>
+</ul>
+</li>
+</ul>
+
+
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/script.js"></script>
+    <script src="https://michael-m-2983.github.io/FRC-Team-2530-Documentation/prism.js"></script>
+</body>
+
+</html>
