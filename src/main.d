@@ -42,11 +42,8 @@ void main()
 			a["href"] = href;
 		}
 
-		doc.body["class"] = "abc";
 
-
-		
-		
+		doc.html.attr("class", "container");
 
 
 		// <a href="/programming/Laptop-Rules">
