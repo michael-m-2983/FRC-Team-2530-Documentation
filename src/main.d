@@ -42,6 +42,18 @@ void main()
 			a["href"] = href;
 		}
 
+
+		if(entry == "docs/index.md" || entry == "index.md") {
+			tName = "li";
+
+			foreach(li; doc.elementsByTagName(tName)) {
+				li["class"] = "weirdo";
+			}
+
+		}
+		
+
+
 		// <a href="/programming/Laptop-Rules">
 
 		content = to!string(doc.root.html);
